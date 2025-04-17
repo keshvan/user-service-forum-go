@@ -2,9 +2,9 @@ package controller
 
 import (
 	"context"
-	"user-service/internal/entity"
 
 	"github.com/gin-gonic/gin"
+	"github.com/keshvan/user-service-forum-go/internal/entity"
 )
 
 type UserUsecase interface {

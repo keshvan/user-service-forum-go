@@ -1,4 +1,4 @@
-module user-service
+module github.com/keshvan/user-service-forum-go
 
 go 1.23.6
 

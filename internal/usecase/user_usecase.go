@@ -3,7 +3,8 @@ package usecase
 import (
 	"context"
 	"fmt"
-	"user-service/internal/entity"
+
+	"github.com/keshvan/user-service-forum-go/internal/entity"
 )
 
 type UserRepository interface {

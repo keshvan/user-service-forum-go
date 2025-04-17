@@ -2,9 +2,9 @@ package repo
 
 import (
 	"context"
-	"user-service/internal/entity"
 
 	"github.com/keshvan/go-sstu-forum/pkg/postgres"
+	"github.com/keshvan/user-service-forum-go/internal/entity"
 )
 
 type UserRepository struct {

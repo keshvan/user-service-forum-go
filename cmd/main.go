@@ -2,8 +2,9 @@ package main
 
 import (
 	"log"
-	"user-service/config"
-	"user-service/internal/app"
+
+	"github.com/keshvan/user-service-forum-go/config"
+	"github.com/keshvan/user-service-forum-go/internal/app"
 )
 
 func main() {
