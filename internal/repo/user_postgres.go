@@ -3,7 +3,7 @@ package repo
 import (
 	"context"
 
-	"github.com/keshvan/go-sstu-forum/pkg/postgres"
+	"github.com/keshvan/go-common-forum/postgres"
 	"github.com/keshvan/user-service-forum-go/internal/entity"
 )
 

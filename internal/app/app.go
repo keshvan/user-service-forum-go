@@ -5,13 +5,13 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
-	"user-service/config"
-	"user-service/internal/controller"
-	"user-service/internal/repo"
-	"user-service/internal/usecase"
 
-	"github.com/keshvan/go-sstu-forum/pkg/httpserver"
-	"github.com/keshvan/go-sstu-forum/pkg/postgres"
+	"github.com/keshvan/go-common-forum/httpserver"
+	"github.com/keshvan/go-common-forum/postgres"
+	"github.com/keshvan/user-service-forum-go/config"
+	"github.com/keshvan/user-service-forum-go/internal/controller"
+	"github.com/keshvan/user-service-forum-go/internal/repo"
+	"github.com/keshvan/user-service-forum-go/internal/usecase"
 )
 
 func Run(cfg *config.Config) {
