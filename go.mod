@@ -1,4 +1,4 @@
-module github.com/keshvan/user-service-forum-go
+module github.com/keshvan/user-service-sstu-forum
 
 go 1.23.6
 

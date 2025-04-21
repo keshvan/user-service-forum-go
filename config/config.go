@@ -12,8 +12,7 @@ type Config struct {
 	Env      string        `yaml:"env" env-default:"local"`
 	PG_URL   string        `yaml:"pg_url"`
 	TokenTTL time.Duration `yaml:"token_ttl" env-required:"true"`
-	//GRPC     GRPCConfig    `yaml:"grpc"`
-	Log string `yaml:"log_level"`
+	Log      string        `yaml:"log_level"`
 }
 
 /*type GRPCConfig struct {

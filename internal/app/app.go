@@ -8,10 +8,10 @@ import (
 
 	"github.com/keshvan/go-common-forum/httpserver"
 	"github.com/keshvan/go-common-forum/postgres"
-	"github.com/keshvan/user-service-forum-go/config"
-	"github.com/keshvan/user-service-forum-go/internal/controller"
-	"github.com/keshvan/user-service-forum-go/internal/repo"
-	"github.com/keshvan/user-service-forum-go/internal/usecase"
+	"github.com/keshvan/user-service-sstu-forum/config"
+	"github.com/keshvan/user-service-sstu-forum/internal/controller"
+	"github.com/keshvan/user-service-sstu-forum/internal/repo"
+	"github.com/keshvan/user-service-sstu-forum/internal/usecase"
 )
 
 func Run(cfg *config.Config) {

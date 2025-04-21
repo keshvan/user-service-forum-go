@@ -4,23 +4,20 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/keshvan/user-service-forum-go/internal/entity"
+	"github.com/keshvan/user-service-sstu-forum/internal/entity"
+	"github.com/keshvan/user-service-sstu-forum/internal/repo"
 )
 
-type UserRepository interface {
-	GetById(ctx context.Context, id int) (*entity.User, error)
+type userUsecase struct {
+	repo repo.UserRepository
 }
 
-type UserUsecase struct {
-	repo UserRepository
+func New(repo repo.UserRepository) *userUsecase {
+	return &userUsecase{repo}
 }
 
-func New(repo UserRepository) *UserUsecase {
-	return &UserUsecase{repo}
-}
-
-func (uc *UserUsecase) GetByID(ctx context.Context, id int) (*entity.User, error) {
-	user, err := uc.repo.GetById(ctx, id)
+func (uc *userUsecase) GetByID(ctx context.Context, id int) (*entity.User, error) {
+	user, err := uc.repo.GetByID(ctx, id)
 	if err != nil {
 		return nil, fmt.Errorf("UserService - Usecase - GetById - repo.GetByID: %w", err)
 	}

@@ -15,7 +15,7 @@ func New(userUsecase UserUsecase) *UserHandler {
 	return &UserHandler{userUsecase}
 }
 
-func (h *UserHandler) GetUserByID(c *gin.Context) {
+func (h *UserHandler) GetByID(c *gin.Context) {
 	id, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "invalid user id"})

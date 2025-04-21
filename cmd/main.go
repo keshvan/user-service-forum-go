@@ -3,8 +3,8 @@ package main
 import (
 	"log"
 
-	"github.com/keshvan/user-service-forum-go/config"
-	"github.com/keshvan/user-service-forum-go/internal/app"
+	"github.com/keshvan/user-service-sstu-forum/config"
+	"github.com/keshvan/user-service-sstu-forum/internal/app"
 )
 
 func main() {

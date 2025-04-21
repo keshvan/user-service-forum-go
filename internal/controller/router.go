@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/gin-gonic/gin"
-	"github.com/keshvan/user-service-forum-go/internal/entity"
+	"github.com/keshvan/user-service-sstu-forum/internal/entity"
 )
 
 type UserUsecase interface {
@@ -16,6 +16,6 @@ func NewRouter(engine *gin.Engine, usecase UserUsecase) {
 
 	users := engine.Group("/users")
 	{
-		users.GET("/:id", h.GetUserByID)
+		users.GET("/:id", h.GetByID)
 	}
 }

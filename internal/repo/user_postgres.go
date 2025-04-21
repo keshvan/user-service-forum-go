@@ -2,27 +2,28 @@ package repo
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/keshvan/go-common-forum/postgres"
-	"github.com/keshvan/user-service-forum-go/internal/entity"
+	"github.com/keshvan/user-service-sstu-forum/internal/entity"
 )
 
-type UserRepository struct {
+type userRepository struct {
 	pg *postgres.Postgres
 }
 
-func New(pg *postgres.Postgres) *UserRepository {
-	return &UserRepository{pg}
+func New(pg *postgres.Postgres) *userRepository {
+	return &userRepository{pg}
 }
 
-func (r *UserRepository) GetById(ctx context.Context, id int) (*entity.User, error) {
-	sql := r.pg.Pool.QueryRow(ctx, "SELECT id, username, is_admin, password_hash FROM users WHERE id = $1", id)
+func (r *userRepository) GetByID(ctx context.Context, id int) (*entity.User, error) {
+	row := r.pg.Pool.QueryRow(ctx, "SELECT id, username, is_admin, password_hash FROM users WHERE id = $1", id)
 
 	var u entity.User
-	err := sql.Scan(&u.ID, &u.Username, &u.IsAdmin, &u.PasswordHash)
 
-	if err != nil {
-		return nil, err
+	if err := row.Scan(&u.ID, &u.Username, &u.IsAdmin, &u.PasswordHash); err != nil {
+		return nil, fmt.Errorf("UserRepository - GetByID - row.Scan(): %w", err)
 	}
+
 	return &u, nil
 }
