@@ -13,6 +13,7 @@ type Config struct {
 	PG_URL   string        `yaml:"pg_url"`
 	TokenTTL time.Duration `yaml:"token_ttl" env-required:"true"`
 	Log      string        `yaml:"log_level"`
+	GRPCPort int           `yaml:"grpc_port"`
 }
 
 /*type GRPCConfig struct {
