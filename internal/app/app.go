@@ -8,6 +8,7 @@ import (
 	"os/signal"
 	"syscall"
 
+	"github.com/keshvan/go-common-forum/logger"
 	"github.com/keshvan/go-common-forum/postgres"
 	"github.com/keshvan/user-service-sstu-forum/config"
 	authgrpc "github.com/keshvan/user-service-sstu-forum/internal/grpc"
@@ -17,6 +18,9 @@ import (
 )
 
 func Run(cfg *config.Config) {
+	//Logger
+	logger := logger.New("user-service", cfg.LogLevel)
+
 	//Repository
 	pg, err := postgres.New(cfg.PG_URL)
 	if err != nil {
@@ -24,14 +28,14 @@ func Run(cfg *config.Config) {
 	}
 	defer pg.Close()
 
-	userRepo := repo.New(pg)
+	userRepo := repo.New(pg, logger)
 
 	//Usecase
-	userUsecase := usecase.New(userRepo)
+	userUsecase := usecase.New(userRepo, logger)
 
 	//GRPC-Server
 	grpcServer := grpc.NewServer()
-	authgrpc.Register(grpcServer, userUsecase)
+	authgrpc.Register(grpcServer, userUsecase, logger)
 
 	l, err := net.Listen("tcp", fmt.Sprintf(":%d", cfg.GRPCPort))
 	if err != nil {
